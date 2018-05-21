@@ -61,18 +61,25 @@ class Cell():
         self.child_probablity = self.p
         self.age = 0
         self.childen_count = 0
+        self.probability_cap = 0.9
     def getArea(self):
         return self.size[0]*self.size[1]
     def adjust_children_probability(self,num):
+        self.child_probablity[self.age][num] += 0.0054
+        if(self.child_probablity[self.age][num]>=self.probability_cap):
+            adjust = (self.child_probablity[self.age][num]-self.probability_cap)/9
+            self.child_probablity[self.age][num]=self.probability_cap
+        else:
+            adjust = 0
         cur = 0
         while cur < 10:
             if cur != num:
-                self.child_probablity[self.age][cur] -= 0.054/9
+                self.child_probablity[self.age][cur] = self.child_probablity[self.age][cur]-0.0054/9+adjust
                 if(self.child_probablity[self.age][cur]<0):
                     self.child_probablity[self.age][num]+=self.child_probablity[self.age][cur]
                     self.child_probablity[self.age][cur]=0
             else:
-                self.child_probablity[self.age][cur] += 0.054
+                pass
             cur += 1
     def inner_drive(self):
         def action(num):
@@ -80,36 +87,36 @@ class Cell():
             self.adjust_children_probability(num)
             #print(self.child_probablity[self.age])
             if num == 0:
-                print("{0} CHOSE TO MOVE UP".format(self.id))
+                #print("{0} CHOSE TO MOVE UP".format(self.id))
                 self.move([0,1])#UP
             elif num == 1:
-                print("{0} CHOSE TO MOVE RIGHT".format(self.id))
+                #print("{0} CHOSE TO MOVE RIGHT".format(self.id))
                 self.move([1,0])#RIGHT
             elif num == 2:
-                print("{0} CHOSE TO MOVE DOWN".format(self.id))
+                #print("{0} CHOSE TO MOVE DOWN".format(self.id))
                 self.move([0,-1])#DOWN
             elif num == 3:
-                print("{0} CHOSE TO MOVE LEFT".format(self.id))
+                #print("{0} CHOSE TO MOVE LEFT".format(self.id))
                 self.move([-1,0])#left
             elif num == 4:
-                print("{0} CHOSE TO NOT MOVE".format(self.id))
+                #print("{0} CHOSE TO NOT MOVE".format(self.id))
                 self.move([0,0])#none
             elif num == 5:
-                print("{0} CHOSE TO GROW UP".format(self.id))
+                #print("{0} CHOSE TO GROW UP".format(self.id))
                 self.grow([0,1])#UP
             elif num == 6:
-                print("{0} CHOSE TO GROW RIGHT".format(self.id))
+                #print("{0} CHOSE TO GROW RIGHT".format(self.id))
                 self.grow([1,0])#RIGHT
             elif num == 7:
-                print("{0} CHOSE TO GROW DOWN".format(self.id))
+                #print("{0} CHOSE TO GROW DOWN".format(self.id))
                 self.grow([0,1])
                 self.move([0,-1])#DOWN
             elif num == 8:
-                print("{0} CHOSE TO GROW LEFT".format(self.id))
+                #print("{0} CHOSE TO GROW LEFT".format(self.id))
                 self.grow([1,0])
                 self.move([-1,0])#left
             elif num == 9:
-                print("{0} CHOSE TO PROP".format(self.id))
+                #print("{0} CHOSE TO PROP".format(self.id))
                 self.prop()
         action(choice(range(10),p=self.p[self.age]))
         self.age += 1
@@ -118,10 +125,10 @@ class Cell():
     def check_over_border(self):
         if self.loc[0] + self.size[0]>world[0] or self.loc[0] <world[0]*-1:
             self.kill('OVER_BORDER')
-            print('OVER BORDER,KILLED')
+            #print('OVER BORDER,KILLED')
         elif self.loc[1] + self.size[1]>world[1] or self.loc[1] <world[1]*-1:
             self.kill("OVER_BORDER")
-            print('OVER BORDER,KILLED')
+            #print('OVER BORDER,KILLED')
         
     def matured(self):
         return self.size[0]*self.size[1]>1
@@ -136,7 +143,7 @@ class Cell():
     def kill(self,reason):
         self.alive = False
         living_beings.remove(self)
-        print("DEAD:: ID: {0}, HISTORY: {1}, size: {3}; REASON: {2}".format(self.id,self.history,reason,self.getArea()))
+        #print("DEAD:: ID: {0}, HISTORY: {1}, size: {3}; REASON: {2}".format(self.id,self.history,reason,self.getArea()))
         self.size = (0,0)
     def prop(self):
         def cut(side):
@@ -166,7 +173,7 @@ class Cell():
             new_baby.append(child)
             self.childen_count +=1
         else:
-            if len(living_beings)<world[0]*world[1]/10000:
+            if len(living_beings)<world[0]*world[1]/1000:
                 child = Cell(
                     [self.loc[0],self.loc[1]+1],
                     [1,1],
@@ -175,9 +182,8 @@ class Cell():
                 new_baby.append(child)
                 self.childen_count +=1
             else:
-                print('NOT MATURED')
-        
-        
+                #print('NOT MATURED')
+                pass
 
 def init_world():
     global living_beings
@@ -186,10 +192,10 @@ def init_world():
     world = (500,500)
     living_beings.append(Cell([0,0],[1,1],'0',init_probability()))
     time = 0
-    while time <1000:
+    while time <800:
         global new_baby
         new_baby = []
-        print("#"*30+'THE {0} STEP OF THE WORLD'.format(time))
+        #print("#"*30+'THE {0} STEP OF THE WORLD'.format(time))
         for being in living_beings:
             being.inner_drive()
         living_beings.sort(key=lambda x:x.getArea(),reverse=True)
@@ -211,7 +217,7 @@ def init_world():
         for k in to_kill:
             k.kill('OTHER')
         time +=1
-        print("-"*30+'THERE ARE {0} IN THE WORLD'.format(len(living_beings)))
+        print("-"*30+'STEP {1} THERE ARE {0} IN THE WORLD'.format(len(living_beings),time))
         living_beings = new_baby + living_beings
 if __name__ == "__main__":
     
