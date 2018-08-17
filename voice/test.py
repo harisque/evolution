@@ -1,22 +1,25 @@
-#!/usr/bin/python
+
 # -*- coding: UTF-8 -*-
 import os
-import urllib3
-import urllib3.exceptions as catch
 import time
-import urllib
-import json
+#import urllib
+#import json
 import hashlib
 import base64
 import getpass
 import wave
+import urllib3
+import urllib3.exceptions as catch
+import requests
+import simplejson as json
 from pyaudio import PyAudio, paInt16
-
+from naoqi import ALProxy
 frame_rate = 16000
 channel = 1
 bite = 2
-record_time = 5
-num_sample = 20000
+record_time = 60
+num_sample = 1600
+tts = ALProxy("ALTextToSpeech", "192.168.2.7", 9559)
 
 class Requester():
     def __init__(self,requestURL,passcode,request_header,body):
@@ -56,20 +59,27 @@ def my_record():
     stream = pa.open(format=paInt16,channels=channel,rate=frame_rate,input=True,frames_per_buffer=num_sample)
     my_buf = []
     count = 0
-    print('start your show:')
     t1 = time.clock()
-    while count < record_time:
-        string_audio_data = stream.read(num_sample)
-        my_buf.append(string_audio_data)
-        count+=1
+    try:
+        while count < int(frame_rate/num_sample*record_time):
+            string_audio_data = stream.read(num_sample,exception_on_overflow=False)
+            if count == 0:
+                print('start your show, press ctrl+c to stop')
+            my_buf.append(string_audio_data)
+            count+=1
+        print('max time recording reached')
+    except KeyboardInterrupt:
+        print('\nrecording stopped')
     t2 = time.clock()
     length = t2-t1
     print(length)
+    stream.stop_stream()
+    stream.close()
+    pa.terminate()
+
     save_wave_file('a.wav',my_buf)
-def test():
-    my_record()
-    
-def main():
+    return 'a.wav'
+def sc_main():
     passcode = getpass.getpass("Passcode: ")
     image_path = os.path.join(os.getcwd(),'multi.jpg')
     f = open(image_path, 'rb')
@@ -92,8 +102,65 @@ def main():
     result = Requester(url,passcode,x_header,body).request('POST').decode('utf-8')
     #result = Requester.urlopen(req)
     #result = result.read()
-    print result
+    print(result)
     return
+def general_main():
+    URL = "http://openapi.xfyun.cn/v2/aiui"
+    APPID = "5aa8940e"
+    API_KEY = "22f5227158494de7bafff4e38acba802"
+    AUE = "raw"
+    AUTH_ID = "efed1fb964694ce4be1f2d9fe01e1973"
+    DATA_TYPE = "audio"
+    SAMPLE_RATE = "16000"
+    SCENE = "main"
+    RESULT_LEVEL = "plain"
+    LAT = "39.938838"
+    LNG = "116.368624"
+    #个性化参数，需转义
+    PERS_PARAM = "{\\\"auth_id\\\":\\\"efed1fb964694ce4be1f2d9fe01e1973\\\"}"
+    FILE_PATH = my_record()
+
+
+    def buildHeader():
+        curTime = str(int(time.time()))
+        param = "{\"result_level\":\""+RESULT_LEVEL+"\",\"auth_id\":\""+AUTH_ID+"\",\"data_type\":\""+DATA_TYPE+"\",\"sample_rate\":\""+SAMPLE_RATE+"\",\"scene\":\""+SCENE+"\",\"aue\":\""+AUE+"\",\"lat\":\""+LAT+"\",\"lng\":\""+LNG+"\"}"
+        #使用个性化参数时参数格式如下：
+        #param = "{\"result_level\":\""+RESULT_LEVEL+"\",\"auth_id\":\""+AUTH_ID+"\",\"data_type\":\""+DATA_TYPE+"\",\"sample_rate\":\""+SAMPLE_RATE+"\",\"scene\":\""+SCENE+"\",\"lat\":\""+LAT+"\",\"lng\":\""+LNG+"\",\"pers_param\":\""+PERS_PARAM+"\"}"
+        paramBase64 = base64.b64encode(param)
+
+        m2 = hashlib.md5()
+        m2.update(API_KEY + curTime + paramBase64)
+        checkSum = m2.hexdigest()
+
+        header = {
+            'X-CurTime': curTime,
+            'X-Param': paramBase64,
+            'X-Appid': APPID,
+            'X-CheckSum': checkSum,
+        }
+        return header
+
+    def readFile(filePath):
+        binfile = open(filePath, 'rb')
+        data = binfile.read()
+        return data
+
+    r = requests.post(URL, headers=buildHeader(), data=readFile(FILE_PATH))
+    x = json.loads(r.content,encoding='utf-8')
+    for el in x['data']:
+        if el['sub']=='nlp' and el['intent']!={}:
+            if el['intent']['rc']==0:
+                result = u"Your question: {0};\n Answer: {1}".format(el['intent']['text'],el['intent']['answer']['text'])
+                answer = (0,el['intent']['answer']['text'])
+            else:
+                result = u"Your question: {0};\n Answer: NO ANSWER {1}".format(el['intent']['text'],el['intent']['rc'])
+                answer = (1,'这个问题我还不会回答')
+    #print(answer)
+    tts.say(answer[1].encode('utf-8') if answer[0]==0 else answer[1])
+    print(result)
 
 if __name__ == '__main__':
-    test()
+    while True:
+        if raw_input('press ENTER to start recording:: ')!="":
+            break
+        general_main()
