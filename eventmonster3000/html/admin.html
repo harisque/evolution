@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=1280, user-scalable=no"/>-->
+    <title>Event Monster 3000 Admin</title>
+    <script src="js/vue.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="/libs/qi/2/qi.js"></script>
+    <script src="js/robot-comm.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="css/style.less"/>
+    <script src="js/less.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="app">
+        <div id='ctrl-wrap'>
+            <div class='ctrl-func-wrap' id='ctrl-input-wrap'>
+                <p>Instant Speech</p>
+                <input v-model='instantSpeech' @keyup.enter="sayInstantSpeech" type='text' id='ctrl-flexible-text'></input>
+            </div>
+            <div class='ctrl-func-wrap'>
+                <p>Current: {{language}}</p>
+                <a class='ctrl-buttons' id='ctrl-lang-chn' :class="{hidden:ifChn}" @click="changeLang">CHN</a>
+                <a class='ctrl-buttons' id='ctrl-lang-eng' :class="{hidden:!ifChn}" @click="changeLang">ENG</a>
+            </div>
+            <div class='ctrl-func-wrap'>
+                <p>Stop Talking</p>
+                <a class='ctrl-buttons' id='ctrl-stop' @click='stopSpeech'>STOP</a>
+            </div>
+            <div class='ctrl-func-wrap'>
+                <p>Battery</p>
+                <span id='ctrl-battery'>{{battery}}</span>
+            </div>
+            <div class='ctrl-func-wrap'>
+                <p>Volume</p>
+                <a class='ctrl-vol-adj' @click="volDown">-</a>
+                <span id='ctrl-volume'>{{volume}}</span>
+                <a class='ctrl-vol-adj' @click="volUp">+</a>
+            </div>
+            <div class='ctrl-func-wrap'>
+                <p>Speech Speed</p>
+                <input id='ctrl-speech-speed' v-model='speechSpeed' pattern="\d{4}" @keyup.enter="changeSpeechSpeed"></input>
+            </div>
+        </div>
+        <motion>
+            <div class='motion-custom'>
+                <p class="group-label">x</p>
+                <input v-model='moveX' pattern="\d{4}" type='text'></input>
+            </div>
+            <div class='motion-custom'>
+                <p class="group-label">y</p>
+                <input v-model='moveY' pattern="\d{4}"  type='text'></input>
+            </div>
+            <div class='motion-custom'>
+                <p class="group-label">theta</p>
+                <input v-model='moveTheta' pattern="\d{4}"  type='text'></input>
+            </div>
+            <div class='motion-custom'>
+                <p></p>
+                <a @click='customMove'>Go</a>
+            </div>
+            <div class='group-tag-wrap'>
+                <a v-for='m in moves' :param='m.param' @click='moveTo'>{{m.name}}</a>
+            </div>
+        </motion>
+        <auto>
+            <div class='group-tag-wrap'>
+                <a v-for='a in auto' :name='a.name' @click='autoPlay'>{{a.name}}</a>
+            </div>
+        </auto>
+        <poses @search='search'>
+            <div class='group-tag-wrap'>
+                <a v-for='p in poses' :path='p.path' @click='makeMove'>{{p.name}}</a>
+            </div>
+        </poses>
+        <media @search='search'>
+            <div class='group-tag-wrap'>
+                <a v-for='m in media' :path='m.path' :type='m.type' @click='playMedia'>{{m.name}}</a>
+            </div>
+        </media>
+        <speech @search='search'>
+            <div class='group-tag-wrap'>
+                <a v-for='p in speechDisplay' @click='sayTag'>{{p}}</a>
+            </div>
+        </speech>
+        <robotapps>
+            <div class='group-tag-wrap'>
+                <a v-for='p in robotapps' @click='runApp' :path='p.path'>{{p.name}}</a>
+            </div>
+        </robotapps>
+    </div>
+    <script type ='text/x-template' id="group">
+        <div class='group-wrap'>
+            <h1 class='group-header'>{{header}}<a class='fold-ctrl' @click='fold' :class="foldClass">{{foldButton}}</a></h1>
+            <div class='group-content' :class="{hidden:iffold}">
+                <div class='group-search-wrap' :class="{hidden:banSearch}">
+                    <p class="group-label">Search</p>
+                    <input v-model='searchKey'  type='text' class='group-search' @keyup='filter'></input>
+                </div>
+                <slot>
+                    <p class='group-slot-default'>No Content Detected For This Component!</p>
+                </slot>
+            </div>
+        </div>
+    </script>
+    <script src="js/app.js"></script>
+</body>
+</html>

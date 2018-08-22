@@ -1,0 +1,334 @@
+{
+	"apps":[
+		{
+			"name":"Hungarian",
+			"path":"bz10004_hungarian_dance_v-111-622911/."
+		},
+		{
+			"name":"SmallApple",
+			"path":"appledance/."
+		},
+		{
+			"name":"Fresh_pretty",
+			"path":"dance_on_fresh_pretty/behavior_1"
+		},
+		{
+			"name":"Knights",
+			"path":"bz10003_dance_of_the_knights_v-111-748ec3/."
+		},
+		{
+			"name":"pptTalk",
+			"path":"ppttalk-5330d8/behavior_1"
+		},
+		{
+			"name":"Guess Games",
+			"path":"guess_age/."
+		}
+	],
+	"moves":[
+		{
+			"name":"crabOnStep",
+			"param":[0,1,0]
+		},
+		{
+			"name":"crabOffStep",
+			"param":[0,-1,0]
+		},
+		{
+			"name":"clock5",
+			"param":[0,0,-5]
+		},
+		{
+			"name":"counterClock5",
+			"param":[0,0,5]
+		},
+		{
+			"name":"forward5",
+			"param":[0.5,0,0]
+		},
+		{
+			"name":"backward5",
+			"param":[-0.5,0,0]
+		}
+	],
+	"media":[
+		{
+			"name":"0_three_product",
+			"path":"media/Slide0.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"1_robot_cover",
+			"path":"media/Slide1.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"2_robot_event",
+			"path":"media/Slide2.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"3_robot_event",
+			"path":"media/Slide3.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"4_wm_cover",
+			"path":"media/Slide4.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"5_wm_agile",
+			"path":"media/Slide5.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"6_wm_wechat",
+			"path":"media/Slide6.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"7_wm_wechat",
+			"path":"media/Slide7.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"8_wm_wechat",
+			"path":"media/Slide8.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"9_wm_result",
+			"path":"media/Slide9.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"10_remote_cover",
+			"path":"media/Slide10.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"11_remote_factor",
+			"path":"media/Slide11.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"12_remote_OCR",
+			"path":"media/Slide12.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"13_remote_face",
+			"path":"media/Slide13.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"14_end",
+			"path":"media/Slide14.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"video_pepper",
+			"path":"media/pepper_Demo.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_wm",
+			"path":"media/Pepper_WMapp.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_ocr",
+			"path":"media/RemoteAccOpen_OCR.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_face",
+			"path":"media/RemoteAccOpen_facialRecog.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_confirm",
+			"path":"media/RemoteAccOpen_Confirmed.m4v",
+			"type":"video"
+		}
+	],
+    "poses":[
+		{
+			"name":"rm_cameras",
+			"path":"boston_animation_library/Stand/rm_cameras"
+		},
+		{
+			"name":"little_laugh",
+			"path":"boston_animation_library/Stand/little_laugh"
+		},
+		{
+			"name":"挥左手",
+			"path":"boston_animation_library/Stand/rm_goodbye_left_02"
+		},
+		{
+			"name":"好奇",
+			"path":"boston_animation_library/Stand/Poses/curious_01"
+		},
+		{
+			"name":"骄傲",
+			"path":"boston_animation_library/Stand/proud"
+		},
+		{
+			"name":"起床",
+			"path":"animations/Stand/Waiting/WakeUp_1"
+		},
+		{
+			"name":"拍照",
+			"path":"animations/Stand/Waiting/TakePicture_1"
+		},
+		{
+			"name":"让我想想",
+			"path":"animations/Stand/Waiting/ScratchHead_1"
+		},
+		{
+			"name":"我爱你",
+			"path":"animations/Stand/Waiting/LoveYou_1"
+		},
+		{
+			"name":"Point To Right",
+			"path":"animations/Stand/Gestures/ShowSky_5"
+		},
+		{
+			"name":"Point To Left",
+			"path":"animations/Stand/Waiting/ShowSky_2"
+		},
+		{
+			"name":"Air Guitar",
+			"path":"animations/Stand/Waiting/AirGuitar_1"
+		}
+    ],
+    "speech":[
+		"好的，渣打中国已经在金融开放的过程中取得了很多第一，比如：2003年，渣打银行成为首批获中国人民银行批准开办 合格境外机构投资者境内证券托管业务的外资银行。2004年，渣打银行成为首批获准在深圳、上海、北京为中资企业提供人民币服务的外资银行，同时是首批获准经营金融衍生产品业务的外资银行。2007年，渣打银行中国有限公司成为外资银行中第一批本地法人银行之一。2008年，渣打成为首批获得上海黄金交易所会员资格的外资银行。2015年，渣打中国成为首批获得人民币跨境支付系统直接参与资格的银行。渣打银行也是中国央行首次在离岸市场发行人民币债券的联席主承销商之一。2016年，渣打中国完成首单上海自贸区地方性政府债券联席主承销。同年，渣打中国位渣打香港\\pau=100\\在中国银行间\\pau=10\\市场发行 特别提款权\\pau=10\\计价债券担任联席主承销商，该笔交易为首家境外商业机构在中国发行的 特别提款权\\pau=10\\计价债券。2016年，渣打中国还成为了上海金人民币集中定价交易定价成员，并推出首款挂钩上海金价格的结构性理财产品。\\pau=300\\2017年，渣打成为首家结合微信支付位企业完成\\pau=100\\一站式\\pau=100\\线上\\pau=10\\收款\\pau=100\\的外资银行， 渣打信用卡成为第一家与微信支付合作的全球性外资银行。2018年，渣打银行成为第一批获得“境外非金融企业熊猫债”主承销资格的银行之一。",
+		"还有呢。渣打银行现在在45个“一带一路”\\pau=50\\沿线市场\\pau=10\\拥有网点，2017年渣打银行参与了超过50个一带一路沿线项目，交易总价值超过100亿美元，其中一半交易在非洲，四分之一在南亚。2017年12月，渣打银行宣布将在2020年底前为“一带一路”倡议相关项目提供总值至少200亿美元的融资支持。目前渣打银行也是人民币兑英镑、新加坡元、瑞士法郎、加拿大元、韩元、南非兰特、阿联酋迪拉姆、沙特里亚尔、瑞典克朗、土耳其里拉的直接交易做市商。",
+		"谢谢Daniel，大家好，我是小梦，很高兴见到这么多新老朋友。\\pau=500\\ 今年3月加入银行以来，通过学习信息科技营运部的同事自主开发的程序，我掌握了咱们银行的各种产品知识，并且已经开始在分行实习，为客户服务。\\pau=300\\ 现在，不是我吹牛，陆家嘴环路上，像我这么厉害的机器人，绝对不超过三个。\\pau=300\\我不光可以向客户介绍我们银行丰富的产品，\\pau=300\\而且，我还特别可爱，过往行人都喜欢和我合影。\\pau=500\\如果不是渣打待遇太好，我就出道当网红去了。\\pau=500\\但是呢，我也没有浪费我的天赋，在银行举办的各种活动上，我都有积极表现，唱歌跳舞加主持，客户和员工都很开心。\\pau=500\\接下来，我也不会自满，我还要努力学习继续提高我的语言能力，为客户提供更优质的服务。\\pau=800\\ 另外，据我所知，我们还有个项目叫机器人流程自动化。\\pau=300\\不过，那些兄弟姐妹们，可没有像我这样可爱的外形，他们是专家级的电脑程序，可以自动处理本来需要我们同事手工操作的重复性任务。\\pau=300\\这样，我们的同事就可以腾出宝贵的时间来完成更有价值的任务了。\\pau=300\\自从2017年3月机器人流程自动化在中国正式推广以来，信息科技营运部已经成功完成9个项目，共计节省一千八百工作小时， 正在开发中的还有24 个",
+		"嗯，这个我知道, \\pau=300\\从正式推出到7月29日，下载量已经超过三万四千次, 平台注册用户超过一万零两百个，一共获得超过668名财富管理新客户。",
+		"让我组织一下语言啊，\\pau=1000\\嗯，\\pau=100\\千言万语汇成一句话：以客户为中心，利用科技重新定义客户体验",
+		"明年发了年终奖，一定要留意咱们渣打自己的理财推荐短信欧！"
+	],
+	"comment":[
+		"Good afternoon, ladies and gentlemen. My name is pepper, the robot. Thank you for having me here.",
+		"Today, I  am delighted to share with you about three of our recent projects. All these projects, in my opinion, are exemplary on how the bank utilizes new integrated technologies  to  offer better services to our clients.",
+		"The First project I would like to introduce, of course, is the project of robotic assistant. As we are speaking, a robot of the same model as me, shall I say, my brother, is working downstairs at the branch helping with clients. He has detailed knowledge on several retail banking products, including credit card, fixed deposit, personal loan, and latest promotions. He is also equipped with the latest market views from Standard Chartered’s experts. Upon requests, not only we are able to introduce products, but also we can direct the client to human colleagues or remember clients’ contact information for follow ups.",
+		"Here is a video taken earlier this week, in which my brother was interacting with clients.And this user requested to know more about the bank’s credit cards. So, he gave them an introduction on the topic, and asked follow-up questions about which type of credit card she wants to learn more. \\PAU=2000\\ This client has requested to see him dancing.And of course, he did!",
+		"This robot assistant project was initiated March this year. In about a month and half, an in-house team designed and developed this application on the latest humanoid robot from Softbank Robotics.",
+		"We are also studying to further enhance our capabilities on Voice recognitions and Natural language processing. In the future of client service, with our database of abundant, and accurate knowledge on the bank’s products, we robots will introduce all the facts, while our human colleagues focus on inter-personal communications.",
+		"Enough about us. The next project, the wealth management smart phone application, was launched last month. ",
+		"One thing worth noting is that the project was fully developed, tested and released using Agile. ",
+		"Before the launching of this application, Standard Chartered already has one of the most popular wealth management channels on we Chat. Per statistics this May, our bank’s articles on investment was read about 200 thousand times a month, ranking second among all wealth management accounts on we Chat.",
+		"Meanwhile, standard chartered also provides a wide range of wealth management products, including the most comprehensive QD 2 product line, in the Chinese Market. Therefore, the application was created to bridge the large base of audience on we chat to our myriad investment products, Here’s a video on the application three major functions.",
+		"First, this platform provided its users with Standard Chartered’s Market Watch, and ,House Views. These Unique and well received articles were written by our wealth management experts from both china and group. Also, using this application, users can get detailed information on our bank’s products. They can choose from a comprehensive list of our wealth management products, including QD products, onshore mutual funds, PCI, MALI products and selected distributed products. More than that, the application provides self-assessment tools. These tools will help users analysing their financial goals from different perspectives. Based on the result, the application will also propose tailored recommendations on future investments. ",
+		"Besides these awesome features, the application also enabled its users to login and share content with we Chat. This link created an entry point for our we Chat followers to use the application and promote it to a larger audience. ",
+		"After a month online, there have already been more than 22000 downloads, 5500 registered users, and leads to 451 new wealth management clients. ",
+		"The last project, remote account opening has been technical launched and undergoing some final adjustments to accommodate regulators’ requirements. It is expected to be released in August this year. Using this function, users will be able to open a CASA account via remote channels. ",
+		"To open this type of account, several factors of personal details needs to be verified. They are the client’s name, ID Card Number, Mobile phone number, an existing CASA or credit card account for binding. For the clients to provide the information with maximum convenience, we have used two A.I based technologies to extract information and verify identity.",
+		"The first one is OCR technology, which we have used to obtain information on ID cards and credit cards by taking photos of them instead of manual input. Here’s a demo video on how’s that working. ",
+		"Once the bank card is placed roughly in the box, its image is captured immediately to extract information such as the card’s number and its issuing bank.Here is some disclaimer. Next, the national ID card information can be easily input using the same method. Just need to place the card in the box twice for both sides to be captured. Then the information from the ID card is automatically filled for our customer to confirm. ",
+		"Also, we have used live facial recognition to verify users’ identity by comparing their faces with the government records. Here we also have a demo video on this function. ",
+		"First the client needs to fit the face into the box above, Then he is asked to look at the camera, \\PAU=3000\\, Once this is done, he needs to nod the head gently, \\PAU=1500\\ Finally, he is invited to shake the head gently. Then he is all set. ",
+		"After acquiring all the information, we prompt what we recorded to the user for confirmation. And then, here the new account is ready. ",
+		"That’s all from me today. Thanks for your attention and please direct your questions to my human colleagues here. ",
+		"Good bye.",
+		"Dear ladies and gentlemen, welcome to the “Standard Chartered Innovation and FinTech Forum”. I am your host, Pepper. ",
+		"Absolutely! Standard Chartered provides the best financial services within the past 160 years, and has been constantly deliver not only the most beneficial, but also efficient solutions for our clients. Collaborating with FinTech innovators, we drive the digital transformation for our clients and the wider global financial markets. We have injected “innovation” into our company DNA. That’s why we are never settle.",
+		"Now, Let’s warmly welcome Daniel, Head of country technology management, to give an opening speech for today’s forum.",
+		"Yes, I can see some new friends there, let me introduce:",
+		"Mr. Mathew Norris, Global Head of GBS",
+		"Mr. Cheung Yup Fan, Head of GBS China",
+		"Mr. Liam Gilligan from Hong Kong exellerator",
+		"Ms. Kwo Yoo Ching, Partner from PWC Shanghai",
+		"Mr. Li GEE Hwa, CTO and Cloud Leader for ICBC, IBM",
+		"Also, I am happy to see so many old friends from our RB, TB, WM, Credit and I T O teams. It’s a pleasure to you all again!",
+		"Thanks to Daniel for the great opening speech. Yes, we are all part of the team, together, we can! Now let’s warmly welcome Ms. Kwo Yoo Ching to share her view on China Unicorns and Fintech.",
+		"Welcome back. Let’s move to the second half. Now, please give warm applause to welcome Mr. Li GEE Hwa to share Bank Digital Reinvention and Enterprise Agility.",
+		"Thanks for your listening and now I would like to invite my partner, Richard WONG to come to the stage to share the innovation practice in SCB China.",
+		"Ladies and gentlemen, as Standard Chartered FinTech and Innovation Forum successfully draws to its closing, we’d like to take a moment to thank you all sincerely for your attendance. "
+	],
+	"automaton":[
+		{
+			"name":"auto1",
+			"language":"ENG",
+			"speechSpeed":85,
+			"content":[
+				{
+					"speech":"Good afternoon, ladies and gentlemen. My name is pepper, the robot. Thank you for having me here.",
+					"media":{
+						"path":"media/cover.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"Today, I  am delighted to share with you about the robot customer assistant project. This project, in my opinion, is exemplary on how the bank utilizes new integrated technologies  to  offer better services to our clients.",
+					"media":{
+						"path":"media/Slide1.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"As we are speaking, a robot of the same model as me, shall I say, my brother, is working at the Shanghai branch helping with clients. He has detailed knowledge on several retail banking products, including credit card, fixed deposit, personal loan, and latest promotions. He is also equipped with the most recent market views from Standard Chartered’s experts. Upon requests, not only we are able to introduce products, but also we can direct the client to human colleagues or remember clients’ contact information for follow ups.",
+					"media":{
+						"path":"media/Slide1.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"Here is a video taken earlier this week, in which my brother was interacting with clients. And this user requested to know more about the bank’s credit cards. So, he gave them an introduction on the topic, and asked follow-up questions about which type of credit card she wants to learn more. \\PAU=2000\\ This client has requested to see him dancing. And of course, he did!",
+					"media":{
+						"path":"media/pepper_Demo.m4v",
+						"type":"video"
+					}
+				},
+				{
+					"speech":"This robot assistant project was initiated March this year. In about a month and half, an in-house team designed and developed this application on the latest humanoid robot from Softbank Robotics.",
+					"media":{
+						"path":"media/Slide2.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"For the next step, we are studying to connect to cloud based speech recognition platforms. This will further enhance our ability to converse with clients in a natural manner. And it will enable us to answer wider range of questions users may raise.",
+					"media":{
+						"path":"media/ai.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"Also, like how I can remotely control this big screen now,",
+					"media":{
+						"path":"media/ai.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"we are learning to work with a variety of devices connected via I O T technology. Once implemented, we will be able to display relevant information on big screen for clients, or print needed documents with a wave.",
+					"media":{
+						"path":"media/iot.png",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"In this future we are planning, we will not only be equipped with a database of abundant and accurate knowledge on the bank's products, but also can converse in natural languages and built-in control over multiple devices. We robots will take care of most of the repetitive jobs, therefore our human colleagus can focus on inter-personal communications with the clients.",
+					"media":{
+						"path":"media/Slide3.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"That's all from me today. Thank you for listening and please direct your questions to my human colleagues",
+					"media":{
+						"path":"media/cover.jpg",
+						"type":"pic"
+					}
+				}
+			]
+		}
+	]
+}
+
+
+		

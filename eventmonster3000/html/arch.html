@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, user-scalable=no"/>
+    <title>SCTabletOnPepper</title>
+    <script src="js/vue.js"></script>
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="/libs/qi/2/qi.js"></script>
+    <link rel="stylesheet/less" type="text/css" href="css/style.less"/>
+    <script src="js/less.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="app">
+        <div id=talkCover @click="resumePageFunction"></div>
+        <div class='top-button-wrap'>
+            <a @click='goBack' :class="{hidden:ifHome}" class='top-buttons'>
+                <img src="img/materials/btn-back.png">
+                <span>返回</span>
+            </a>
+            <a @click='goHome' :class="{hidden:ifHome}" name='home' class='top-buttons'>
+                <img src="img/materials/btn-home.png" name='home'>
+                <span>主页</span>
+            </a>
+            <a @click='multiPageFlip' :class="{hidden:ifNoShowPageCtrlPrev}" step=-1 class='top-buttons'>
+                <img src="img/materials/btn-up.png">
+                <span>上一页</span>
+            </a>
+            <a @click='multiPageFlip' :class="{hidden:ifNoShowPageCtrlNext}" step=1 class='top-buttons'>
+                <img src="img/materials/btn-down.png">
+                <span>下一页</span>
+            </a>
+            <a id='speechCtrl' :class="{hidden:ifPageFunctioning}" name='ctrl' class='top-buttons'>
+                按屏幕跳过语音介绍
+            </a>
+        </div>
+        <component :is="currentView" @jump="touchChangeView" @show-multi-page-ctrl='showMultiPageCtrl' @to-home='goHome' @back='goBack'></component>
+    </div>
+    <script type ='text/x-template' id="none">
+        <div></div>
+    </script>
+    <script type ='text/x-template' id="menu">
+        <div :class="[bg,bg2rows,special]" class="menu-wrap">
+            <div id='idBlock' :class="{hidden:ifNoBlock}">
+                <h3>{{display}}</h3>
+                <p class='block-img-wrap'><img :src='bigIcon'/></p>
+            </div>
+            <div id='id-block-shadow' :class="{hidden:ifNoBlock}"></div>
+            <div id='dbank-big-item' :class="{hidden:ifNotDbank}">
+                <a v-for="m in bigMembers" :name="m.name" @click="changeView" class="menu-item">
+                    <span :name="m.name" :class="{hidden:ifNoIcon}" class='link-icon-wrap'><img :name="m.name" :src='m.icon'></span>
+                    <span :name="m.name" :class="{doubleRow:ifWordingTooLong(m.display)}" class='link-text-wrap'>{{m.display}}</span>
+                </a>
+            </div>
+            <div id='dbank-shadow' :class="{hidden:ifNotDbank}"></div>
+            <h1 :class="{hidden:ifNoShowTitleH1}">您可以问我：</h1>
+            <h2 :class="{hidden:ifNoShowTitleH2}">{{smallDisplay}}</h2>
+            <a v-for="m in members" :name="m.name" @click="changeView" class="menu-item">
+                <span :name="m.name" :class="{hidden:ifNoIcon}" class='link-icon-wrap'><img :name="m.name" :src='m.icon'></span>
+                <span :name="m.name" :class="{doubleRow:ifWordingTooLong(m.display)}" class='link-text-wrap' v-html='m.display'></span>
+            </a>
+        </div>
+    </script>
+    <script type ='text/x-template' id="multiPage">
+        <div id="multi-page-wrap" :ifmulti="{multi:ifMultiPage}">
+            <div v-for="m in members" :class="{hidden:members.indexOf(m)!=location}">
+                <div id='multi-page-img-wrap'><img :src='m.image'></div>
+                <div id='multi-page-shadow'></div>
+                <div id='multi-page-text-wrap'>
+                    <h2>{{m.smallTitle}}</h2>
+                    <h1>{{m.bigTitle}}</h1>
+                    <div class='multi-page-text-block' :class="{wide:m.layout=='1c'}">
+                        <p class="multi-page-main-text" v-for='t in m.text[0]'>{{t}}</p>
+                    </div>
+                    <div class='multi-page-text-block' :class="{hidden:m.layout=='1c'}">
+                        <p class="multi-page-main-text" v-for='t in m.text[1]'>{{t}}</p>
+                    </div>
+                </div>
+                <div id='qr-wrap-multi-page'>
+                    <div class='qr-text-multi-page'>
+                        <p>{{m.qr.uppertitle}}</p>
+                        <h3>{{m.qr.lowertitle}}</h3>
+                    </div>
+                    <div class='qr-item-multi-page' v-for="q in m.qr.members">
+                        <p class='qr-item-text-multi-page'>{{q.text}}</p>
+                        <p><img :src="q.image"></p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </script>
+    <script type ='text/x-template' id="description">
+        <div id="desc-wrap">
+            <div id='desc-img-wrap'><img :src='image'></div>
+            <div id='desc-shadow'></div>
+            <div id='desc-text-wrap'>
+                <h1 v-html="display"></h1>
+                <p class="desc-main-text" v-for='t in text'>{{t}}</p>
+                <a name="csm" @click="changeView" class="desc-menu-item">呼叫客户经理</a>
+                <a name="leads" @click="changeView" class="desc-menu-item">留下联系方式</a>
+                <p class="desc-note" v-for='n in note'>{{n}}</p>
+            </div>
+            <div id='qr-wrap-gen'>
+                <p>{{qr.text}}</p>
+                <p><img :src="qr.image"></p>
+            </div>
+        </div>
+    </script>
+    <script type ='text/x-template' id="wmMarket">
+        <div id="wm-market-wrap">
+            <div id='wm-left-wrap'>
+                <h1>{{display}}</h1>
+                <div id='wm-charts'>
+                    <div id='wm-charts-us'>
+                        <p>美国市场</p>
+                        <img :src='image.us'>
+                    </div>
+                    <div id='wm-charts-cn'>
+                        <p>中国市场</p>
+                        <img :src='image.cn'>
+                    </div>
+                </div>
+            </div>
+            <div id='wm-right-wrap'>
+                <div class="wm-qr-wrap" v-for='q in qr'>
+                    <p>{{q.text}}</p>
+                    <p><img :src='q.image'></p>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type ='text/x-template' id="about">
+        <div id="about-img-wrap">
+            <img src='img/content/about.png'>
+        </div>
+    </script> 
+    <script type ='text/x-template' id="leads">
+        <div id='leads-wrap'>
+            <div class='input-wrap'>
+                <img src='img/materials/input-icon-name.png'>
+                <span>姓名</span>
+                <input id="input-username" @blur='togLift' @focus='togLift' type="text" v-model='username' name="username" maxlength="4" required/>
+            </div>
+            <div class='input-wrap'>
+                <img src='img/materials/input-icon-phone.png'>
+                <span>电话</span>
+                <input id="input-telephone" @blur='togLift' @focus='togLift' type="text" v-model='phone' name="telephone" maxlength="11" pattern="\d{4}" required/>
+            </div>
+            <div class='submit-wrap'>
+                <input @click="recordUserInfo" type="submit" value='提交'/>
+            </div>
+            <div id='disclaimer'>
+                <div class='disclaimer-text'>
+                    <p>请在提交信息前仔细阅读"重要法律通知"和"网站隐私声明"。如果您提交信息即表示您接受"重要法律通知"和"网站隐私声明"，我们会根据您的信息不时向您提供您可能会感兴趣的银行产品和服务，如果您不希望我们联系您，请拨打我行客户服务热线400 888 8083。</p>
+                    <div class='disclaimer-qr-wrap'>
+                        <span>重要法律通知<img src='img/content/qrDisclaimer1.png'></span>
+                        <span>网站隐私声明<img src='img/content/qrDisclaimer2.png'></span>
+                    </div>
+                </div>
+                <p class='disclaimer-btn'>
+                    <a @click='authorize' id='yes'>同意</a>
+                    <a @click='reject' id='no'>不同意</a>
+                </p>
+                
+            </div>
+        </div>
+    </script>
+    <script type ='text/x-template' id="csm">
+        <div id="rm-wrap">
+                <div id='rm-img-wrap'><img :src='image'></div>
+                <div id='rm-text-wrap'>
+                    <h1>{{csmName}}</h1>
+                    <p v-for='t in text'>{{t}}</p>
+                </div>
+            </div>
+    </script>
+    <script src="js/testApp.js"></script>
+</body>
+</html>
