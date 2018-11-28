@@ -1,0 +1,323 @@
+{
+	"apps":[
+		{
+			"name":"Hungarian",
+			"path":"bz10004_hungarian_dance_v-111-622911/."
+		},
+		{
+			"name":"SmallApple",
+			"path":"appledance/."
+		},
+		{
+			"name":"Fresh_pretty",
+			"path":"dance_on_fresh_pretty/behavior_1"
+		},
+		{
+			"name":"Knights",
+			"path":"bz10003_dance_of_the_knights_v-111-748ec3/."
+		},
+		{
+			"name":"pptTalk",
+			"path":"ppttalk-5330d8/behavior_1"
+		},
+		{
+			"name":"Guess Games",
+			"path":"guess_age/."
+		}
+	],
+	"moves":[
+		{
+			"name":"crabOnStep",
+			"param":[0,1,0]
+		},
+		{
+			"name":"crabOffStep",
+			"param":[0,-1,0]
+		},
+		{
+			"name":"clock5",
+			"param":[0,0,-5]
+		},
+		{
+			"name":"counterClock5",
+			"param":[0,0,5]
+		},
+		{
+			"name":"forward5",
+			"param":[0.5,0,0]
+		},
+		{
+			"name":"backward5",
+			"param":[-0.5,0,0]
+		}
+	],
+	"media":[
+		{
+			"name":"0_three_product",
+			"path":"media/Slide0.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"1_robot_cover",
+			"path":"media/Slide1.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"2_robot_event",
+			"path":"media/Slide2.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"3_robot_event",
+			"path":"media/Slide3.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"4_wm_cover",
+			"path":"media/Slide4.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"5_wm_agile",
+			"path":"media/Slide5.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"6_wm_wechat",
+			"path":"media/Slide6.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"7_wm_wechat",
+			"path":"media/Slide7.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"8_wm_wechat",
+			"path":"media/Slide8.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"9_wm_result",
+			"path":"media/Slide9.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"10_remote_cover",
+			"path":"media/Slide10.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"11_remote_factor",
+			"path":"media/Slide11.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"12_remote_OCR",
+			"path":"media/Slide12.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"13_remote_face",
+			"path":"media/Slide13.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"14_end",
+			"path":"media/Slide14.jpg",
+			"type":"pic"
+		},
+		{
+			"name":"video_pepper",
+			"path":"media/pepper_Demo.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_wm",
+			"path":"media/Pepper_WMapp.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_ocr",
+			"path":"media/RemoteAccOpen_OCR.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_face",
+			"path":"media/RemoteAccOpen_facialRecog.m4v",
+			"type":"video"
+		},
+		{
+			"name":"video_confirm",
+			"path":"media/RemoteAccOpen_Confirmed.m4v",
+			"type":"video"
+		}
+	],
+    "poses":[
+		{
+			"name":"rm_cameras",
+			"path":"boston_animation_library/Stand/rm_cameras"
+		},
+		{
+			"name":"little_laugh",
+			"path":"boston_animation_library/Stand/little_laugh"
+		},
+		{
+			"name":"挥左手",
+			"path":"boston_animation_library/Stand/rm_goodbye_left_02"
+		},
+		{
+			"name":"好奇",
+			"path":"boston_animation_library/Stand/Poses/curious_01"
+		},
+		{
+			"name":"骄傲",
+			"path":"boston_animation_library/Stand/proud"
+		},
+		{
+			"name":"起床",
+			"path":"animations/Stand/Waiting/WakeUp_1"
+		},
+		{
+			"name":"拍照",
+			"path":"animations/Stand/Waiting/TakePicture_1"
+		},
+		{
+			"name":"让我想想",
+			"path":"animations/Stand/Waiting/ScratchHead_1"
+		},
+		{
+			"name":"我爱你",
+			"path":"animations/Stand/Waiting/LoveYou_1"
+		},
+		{
+			"name":"Point To Right",
+			"path":"animations/Stand/Gestures/ShowSky_5"
+		},
+		{
+			"name":"Point To Left",
+			"path":"animations/Stand/Waiting/ShowSky_2"
+		},
+		{
+			"name":"Air Guitar",
+			"path":"animations/Stand/Waiting/AirGuitar_1"
+		}
+
+    ],
+    "speech":[
+		"欢迎大家今天来参加渣打银行举办的「优先创想家」领导力训练营，本活动通过训练营的形式，让「优先理财」客户子女亲身参与银行精心打造的一系列课程培养财商与领导力，让您始终领航一步！\\pau=1000\\ 我们三天课程的安排是这样的：今天我们会首先进行沙漠掘金的课程，这是国外引进的经典体验式课程。被清华大学，浙江大学，交通大学，复旦大学列入E M B A课程。相信今天的掘金任务，会让大家在团队合作，配合和执行力方面得到全面的锻炼。\\pau=1000\\ 明天我们将体验设计思维的课程。这是源于斯坦福大学的课程，将创新领导力与设计思维模式相结合，让你体验如何运用领导力快速解决问题。\\pau=1000\\ 第三天，我们有团队拓展活动。让大家在游戏竞赛中运用所学，团队协作，共同完成任务。相信三天的活动会带给大家完全不同的体验。让我们一起共度难忘的时光吧！",
+		"Dear ladies and gentlemen, welcome to the “Standard Chartered Innovation and FinTech Forum”. I am your host, Pepper. ",
+		"Absolutely! Standard Chartered provides the best financial services within the past 160 years, and has been constantly deliver not only the most beneficial, but also efficient solutions for our clients. Collaborating with FinTech innovators, we drive the digital transformation for our clients and the wider global financial markets. We have injected “innovation” into our company DNA. That’s why we are never settle.",
+		"Now, Let’s warmly welcome Daniel, Head of country technology management, to give an opening speech for today’s forum.",
+		"Yes, I can see some new friends there, let me introduce:",
+		"Mr. Mathew Norris, Global Head of GBS",
+		"Mr. Cheung Yup Fan, Head of GBS China",
+		"Mr. Liam Gilligan from Hong Kong exellerator",
+		"Ms. Kwo Yoo Ching, Partner from PWC Shanghai",
+		"Mr. Li GEE Hwa, CTO and Cloud Leader for ICBC, IBM",
+		"Also, I am happy to see so many old friends from our RB, TB, WM, Credit and I T O teams. It’s a pleasure to you all again!",
+		"Thanks to Daniel for the great opening speech. Yes, we are all part of the team, together, we can! Now let’s warmly welcome Ms. Kwo Yoo Ching to share her view on China Unicorns and Fintech.",
+		"Welcome back. Let’s move to the second half. Now, please give warm applause to welcome Mr. Li GEE Hwa to share Bank Digital Reinvention and Enterprise Agility.",
+		"Thanks for your listening and now I would like to invite my partner, Richard WONG to come to the stage to share the innovation practice in SCB China.",
+		"Ladies and gentlemen, as Standard Chartered FinTech and Innovation Forum successfully draws to its closing, we’d like to take a moment to thank you all sincerely for your attendance. "
+	],
+	"comment":[
+		"Good afternoon, ladies and gentlemen. My name is pepper, the robot. Thank you for having me here.",
+		"Today, I  am delighted to share with you about three of our recent projects. All these projects, in my opinion, are exemplary on how the bank utilizes new integrated technologies  to  offer better services to our clients.",
+		"The First project I would like to introduce, of course, is the project of robotic assistant. As we are speaking, a robot of the same model as me, shall I say, my brother, is working downstairs at the branch helping with clients. He has detailed knowledge on several retail banking products, including credit card, fixed deposit, personal loan, and latest promotions. He is also equipped with the latest market views from Standard Chartered’s experts. Upon requests, not only we are able to introduce products, but also we can direct the client to human colleagues or remember clients’ contact information for follow ups.",
+		"Here is a video taken earlier this week, in which my brother was interacting with clients.And this user requested to know more about the bank’s credit cards. So, he gave them an introduction on the topic, and asked follow-up questions about which type of credit card she wants to learn more. \\PAU=2000\\ This client has requested to see him dancing.And of course, he did!",
+		"This robot assistant project was initiated March this year. In about a month and half, an in-house team designed and developed this application on the latest humanoid robot from Softbank Robotics.",
+		"We are also studying to further enhance our capabilities on Voice recognitions and Natural language processing. In the future of client service, with our database of abundant, and accurate knowledge on the bank’s products, we robots will introduce all the facts, while our human colleagues focus on inter-personal communications.",
+		"Enough about us. The next project, the wealth management smart phone application, was launched last month. ",
+		"One thing worth noting is that the project was fully developed, tested and released using Agile. ",
+		"Before the launching of this application, Standard Chartered already has one of the most popular wealth management channels on we Chat. Per statistics this May, our bank’s articles on investment was read about 200 thousand times a month, ranking second among all wealth management accounts on we Chat.",
+		"Meanwhile, standard chartered also provides a wide range of wealth management products, including the most comprehensive QD 2 product line, in the Chinese Market. Therefore, the application was created to bridge the large base of audience on we chat to our myriad investment products, Here’s a video on the application three major functions.",
+		"First, this platform provided its users with Standard Chartered’s Market Watch, and ,House Views. These Unique and well received articles were written by our wealth management experts from both china and group. Also, using this application, users can get detailed information on our bank’s products. They can choose from a comprehensive list of our wealth management products, including QD products, onshore mutual funds, PCI, MALI products and selected distributed products. More than that, the application provides self-assessment tools. These tools will help users analysing their financial goals from different perspectives. Based on the result, the application will also propose tailored recommendations on future investments. ",
+		"Besides these awesome features, the application also enabled its users to login and share content with we Chat. This link created an entry point for our we Chat followers to use the application and promote it to a larger audience. ",
+		"After a month online, there have already been more than 22000 downloads, 5500 registered users, and leads to 451 new wealth management clients. ",
+		"The last project, remote account opening has been technical launched and undergoing some final adjustments to accommodate regulators’ requirements. It is expected to be released in August this year. Using this function, users will be able to open a CASA account via remote channels. ",
+		"To open this type of account, several factors of personal details needs to be verified. They are the client’s name, ID Card Number, Mobile phone number, an existing CASA or credit card account for binding. For the clients to provide the information with maximum convenience, we have used two A.I based technologies to extract information and verify identity.",
+		"The first one is OCR technology, which we have used to obtain information on ID cards and credit cards by taking photos of them instead of manual input. Here’s a demo video on how’s that working. ",
+		"Once the bank card is placed roughly in the box, its image is captured immediately to extract information such as the card’s number and its issuing bank.Here is some disclaimer. Next, the national ID card information can be easily input using the same method. Just need to place the card in the box twice for both sides to be captured. Then the information from the ID card is automatically filled for our customer to confirm. ",
+		"Also, we have used live facial recognition to verify users’ identity by comparing their faces with the government records. Here we also have a demo video on this function. ",
+		"First the client needs to fit the face into the box above, Then he is asked to look at the camera, \\PAU=3000\\, Once this is done, he needs to nod the head gently, \\PAU=1500\\ Finally, he is invited to shake the head gently. Then he is all set. ",
+		"After acquiring all the information, we prompt what we recorded to the user for confirmation. And then, here the new account is ready. ",
+		"That’s all from me today. Thanks for your attention and please direct your questions to my human colleagues here. ",
+		"Good bye."
+	],
+	"automaton":[
+		{
+			"name":"auto1",
+			"language":"ENG",
+			"speechSpeed":85,
+			"content":[
+				{
+					"speech":"Good afternoon, ladies and gentlemen. My name is pepper, the robot. Thank you for having me here.",
+					"media":{
+						"path":"media/Slide0.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"Today, I  am delighted to share with you about the robot customer assistant project. This project, in my opinion, is exemplary on how the bank utilizes new integrated technologies  to  offer better services to our clients.",
+					"media":{
+						"path":"media/Slide1.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"As we are speaking, a robot of the same model as me, shall I say, my brother, is working downstairs at the branch helping with clients. He has detailed knowledge on several retail banking products, including credit card, fixed deposit, personal loan, and latest promotions. He is also equipped with the most recent market views from Standard Chartered’s experts. Upon requests, not only we are able to introduce products, but also we can direct the client to human colleagues or remember clients’ contact information for follow ups.",
+					"media":{
+						"path":"media/Slide1.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"Here is a video taken earlier this week, in which my brother was interacting with clients. And this user requested to know more about the bank’s credit cards. So, he gave them an introduction on the topic, and asked follow-up questions about which type of credit card she wants to learn more. \\PAU=2000\\ This client has requested to see him dancing. And of course, he did!",
+					"media":{
+						"path":"media/pepper_Demo.m4v",
+						"type":"video"
+					}
+				},
+				{
+					"speech":"This robot assistant project was initiated March this year. In about a month and half, an in-house team designed and developed this application on the latest humanoid robot from Softbank Robotics.",
+					"media":{
+						"path":"media/Slide2.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"For the next step, we are studying to connect to cloud based speech recognition platforms. This will further enhance our ability to converse with clients in a natural manner. And it will enable us to answer wider range of questions users may raise.",
+					"media":{
+						"path":"media/Slide_cloud.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"Also, like how I can remotely control this big screen now,",
+					"media":{
+						"path":"media/Slide_cloud.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"we are learning to work with a variety of devices connected via I O T technology. Once implemented, we will be able to display relevant information on big screen for clients, or print needed documents with a wave.",
+					"media":{
+						"path":"media/Slide_iot.jpg",
+						"type":"pic"
+					}
+				},
+				{
+					"speech":"In this future we are planning, we will not only be equipped with a database of abundant and accurate knowledge on the bank's products, but also can converse in natural languages and built-in control over multiple devices. We robots will take care of most of the repetitive jobs, therefore our human colleagus can focus on inter-personal communications with the clients.",
+					"media":{
+						"path":"media/Slide3.jpg",
+						"type":"pic"
+					}
+				}
+			]
+		}
+	]
+}
+
+
+		
